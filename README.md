@@ -2,7 +2,15 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-`mactool` is a binary tool written in C designated for **QSDK** which allows users to modify MAC address(es) stored in the ART partition.
+`mactool` is a binary tool written in C designated for Qualcomm AP devices built in **QSDK** which allows users to modify MAC address(es) stored in the ART partition.
+
+---
+
+## Development
+
+Developers have to customize the corresponding MACROs of offset and size in `src/mactool.c` to suit the desired use cases.\
+For example, the starting offset of calibration block, size and the preset number of legal interfaces may vary per wifi chip.\
+All of these parameters are required for further confirmation based on specification.
 
 ---
 
@@ -21,7 +29,6 @@ make V=s -j1 package/mactool/{clean,compile}
 
 ### For ART partition mounted in NOR/NAND
 ```
-# For ART partition mounted in NOR/NAND
 mactool -i eth0 -g
 mactool -i eth0 -s 4c136504800a
 mactool -i wifi0 -g
